@@ -58,7 +58,7 @@ def post_detail(request, id):
     """Описание выбранной записи"""
     template = 'blog/detail.html'
     if id not in posts_dict:
-        return render(request, 'Http404', status=404)
+        raise Http404('Вы указали неверный id')
     context = {'post': posts[id]}
     return render(request, template, context)
 
